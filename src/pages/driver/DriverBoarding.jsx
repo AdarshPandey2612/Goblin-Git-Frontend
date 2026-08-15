@@ -1,79 +1,73 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
+const initialStudents = [
+  {
+    id: "STU-001",
+    name: "Aarav Sharma",
+    className: "8-A",
+    stop: "Sector 12",
+    boarded: false,
+  },
+  {
+    id: "STU-002",
+    name: "Ananya Singh",
+    className: "7-B",
+    stop: "City Center",
+    boarded: false,
+  },
+  {
+    id: "STU-003",
+    name: "Rohan Verma",
+    className: "9-A",
+    stop: "Main Gate",
+    boarded: false,
+  },
+  {
+    id: "STU-004",
+    name: "Priya Gupta",
+    className: "6-C",
+    stop: "School Road",
+    boarded: false,
+  },
+];
 
 function DriverBoarding() {
+  const [students, setStudents] = useState(initialStudents);
   const [search, setSearch] = useState("");
 
-  const students = [
-    {
-      id: "STU-001",
-      name: "Aarav Sharma",
-      className: "Class 8",
-      stop: "Sector 12",
-      status: "Boarded",
-    },
-    {
-      id: "STU-002",
-      name: "Ananya Singh",
-      className: "Class 7",
-      stop: "City Center",
-      status: "Boarded",
-    },
-    {
-      id: "STU-003",
-      name: "Rohan Verma",
-      className: "Class 9",
-      stop: "School Road",
-      status: "Pending",
-    },
-    {
-      id: "STU-004",
-      name: "Priya Gupta",
-      className: "Class 6",
-      stop: "Main Gate",
-      status: "Boarded",
-    },
-    {
-      id: "STU-005",
-      name: "Aditya Kumar",
-      className: "Class 8",
-      stop: "Sector 12",
-      status: "Pending",
-    },
-  ];
+  const toggleBoarding = (id) => {
+    setStudents(
+      students.map((student) =>
+        student.id === id
+          ? {
+              ...student,
+              boarded: !student.boarded,
+            }
+          : student
+      )
+    );
+  };
 
   const filteredStudents = students.filter((student) =>
-    `${student.id} ${student.name} ${student.className} ${student.stop}`
+    `${student.name} ${student.id} ${student.className} ${student.stop}`
       .toLowerCase()
       .includes(search.toLowerCase())
   );
 
   const boardedCount = students.filter(
-    (student) => student.status === "Boarded"
-  ).length;
-
-  const pendingCount = students.filter(
-    (student) => student.status === "Pending"
+    (student) => student.boarded
   ).length;
 
   return (
     <div className="dashboard">
 
-      {/* HEADER */}
       <div className="page-heading">
         <div>
           <h1>Student Boarding</h1>
-          <p>
-            Track student boarding status for today's trip.
-          </p>
+          <p>Track students boarding today's school bus.</p>
         </div>
-
-        <Link to="/driver/trip" className="back-button">
-          ← Today's Trip
-        </Link>
       </div>
 
-      {/* STATS */}
       <div className="stats-grid">
 
         <div className="stat-card">
@@ -89,32 +83,22 @@ function DriverBoarding() {
         </div>
 
         <div className="stat-card">
-          <p className="stat-title">Pending</p>
-          <h2>{pendingCount}</h2>
+          <p className="stat-title">Remaining</p>
+          <h2>{students.length - boardedCount}</h2>
           <span>Yet to board</span>
         </div>
 
-        <div className="stat-card">
-          <p className="stat-title">Bus</p>
-          <h2>BUS-05</h2>
-          <span>Current trip</span>
-        </div>
-
       </div>
 
-      {/* SEARCH */}
       <div className="bus-toolbar">
-
         <input
           type="text"
-          placeholder="Search student, ID or stop..."
+          placeholder="Search student, class or stop..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-
       </div>
 
-      {/* TABLE */}
       <div className="table-container">
 
         <table>
@@ -122,10 +106,11 @@ function DriverBoarding() {
           <thead>
             <tr>
               <th>Student ID</th>
-              <th>Student Name</th>
+              <th>Name</th>
               <th>Class</th>
-              <th>Pickup Stop</th>
+              <th>Stop</th>
               <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
 
@@ -147,14 +132,31 @@ function DriverBoarding() {
 
                 <td>
                   <span
-                    className={
-                      student.status === "Boarded"
-                        ? "status active"
-                        : "status stopped"
+                    className={`status ${
+                      student.boarded
+                        ? "active"
+                        : "stopped"
+                    }`}
+                  >
+                    {student.boarded
+                      ? "Boarded"
+                      : "Not Boarded"}
+                  </span>
+                </td>
+
+                <td>
+
+                  <button
+                    className="primary-button"
+                    onClick={() =>
+                      toggleBoarding(student.id)
                     }
                   >
-                    {student.status}
-                  </span>
+                    {student.boarded
+                      ? "Mark Absent"
+                      : "Mark Boarded"}
+                  </button>
+
                 </td>
 
               </tr>

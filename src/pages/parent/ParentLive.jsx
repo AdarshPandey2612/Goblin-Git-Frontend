@@ -1,14 +1,11 @@
-import { Link } from "react-router-dom";
-
 function ParentLive() {
   const bus = {
-    number: "BUS-05",
+    id: "BUS-05",
     driver: "Rajesh Kumar",
     location: "Sector 12",
     speed: "38 km/h",
+    eta: "12 minutes",
     status: "On Route",
-    eta: "12 min",
-    lastUpdated: "1 minute ago",
   };
 
   return (
@@ -19,26 +16,20 @@ function ParentLive() {
           <h1>Live Bus</h1>
           <p>Track your child's school bus in real time.</p>
         </div>
-
-        <Link to="/parent" className="back-button">
-          ← Dashboard
-        </Link>
       </div>
 
       <div className="stats-grid">
 
         <div className="stat-card">
           <p className="stat-title">Bus</p>
-          <h2>{bus.number}</h2>
-          <span>Assigned bus</span>
+          <h2>{bus.id}</h2>
+          <span>{bus.status}</span>
         </div>
 
         <div className="stat-card">
-          <p className="stat-title">Status</p>
-          <div style={{ margin: "12px 0" }}>
-            <span className="status active">{bus.status}</span>
-          </div>
-          <span>Current status</span>
+          <p className="stat-title">Location</p>
+          <h2>{bus.location}</h2>
+          <span>Current location</span>
         </div>
 
         <div className="stat-card">
@@ -55,48 +46,40 @@ function ParentLive() {
 
       </div>
 
-      <div className="dashboard-grid">
+      <div className="live-map">
 
-        <div className="map-placeholder">
-          <div>
-            <h2>Live GPS Location</h2>
-            <p>{bus.location}</p>
-            <p>Live GPS map will be connected with backend later.</p>
+        <div className="map-road">
+          <div className="map-stop stop-one">
+            School
+          </div>
+
+          <div className="map-stop stop-two">
+            Sector 12
+          </div>
+
+          <div className="map-stop stop-three">
+            Main Gate
+          </div>
+
+          <div className="bus-marker">
+            🚌
           </div>
         </div>
 
-        <div className="bus-section">
+      </div>
 
-          <h2>Bus Information</h2>
+      <div className="bus-section">
 
-          <div className="bus-card">
-            <div>
-              <h3>Bus Number</h3>
-              <p>{bus.number}</p>
-            </div>
-          </div>
+        <h2>Driver Information</h2>
 
-          <div className="bus-card">
-            <div>
-              <h3>Driver</h3>
-              <p>{bus.driver}</p>
-            </div>
-          </div>
+        <div className="bus-card">
+          <h3>Driver</h3>
+          <p>{bus.driver}</p>
+        </div>
 
-          <div className="bus-card">
-            <div>
-              <h3>Current Location</h3>
-              <p>{bus.location}</p>
-            </div>
-          </div>
-
-          <div className="bus-card">
-            <div>
-              <h3>Last Updated</h3>
-              <p>{bus.lastUpdated}</p>
-            </div>
-          </div>
-
+        <div className="bus-card">
+          <h3>Current Status</h3>
+          <p>{bus.status}</p>
         </div>
 
       </div>
