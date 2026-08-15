@@ -1,0 +1,38 @@
+export const buses = [
+  {
+    id: "BUS-05",
+    driver: "Rajesh Kumar",
+    route: "Route A",
+    status: "Active",
+    location: "Sector 12",
+    speed: "38 km/h",
+    students: 32,
+  },
+  {
+    id: "BUS-08",
+    driver: "Amit Singh",
+    route: "Route B",
+    status: "Active",
+    location: "School Road",
+    speed: "42 km/h",
+    students: 28,
+  },
+  {
+    id: "BUS-12",
+    driver: "Vikas Sharma",
+    route: "Route C",
+    status: "Stopped",
+    location: "Main Gate",
+    speed: "0 km/h",
+    students: 25,
+  },
+  {
+    id: "BUS-15",
+    driver: "Suresh Yadav",
+    route: "Route D",
+    status: "Maintenance",
+    location: "Depot",
+    speed: "0 km/h",
+    students: 0,
+  },
+];

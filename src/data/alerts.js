@@ -1,0 +1,32 @@
+export const alerts = [
+  {
+    id: "ALT-001",
+    type: "Speed Alert",
+    bus: "BUS-05",
+    driver: "Rajesh Kumar",
+    location: "Sector 12",
+    time: "10:42 AM",
+    severity: "High",
+    status: "Active",
+  },
+  {
+    id: "ALT-002",
+    type: "Route Deviation",
+    bus: "BUS-08",
+    driver: "Amit Singh",
+    location: "City Center",
+    time: "10:18 AM",
+    severity: "Medium",
+    status: "Active",
+  },
+  {
+    id: "ALT-003",
+    type: "Vehicle Stopped",
+    bus: "BUS-12",
+    driver: "Vikas Sharma",
+    location: "Main Gate",
+    time: "09:55 AM",
+    severity: "Low",
+    status: "Resolved",
+  },
+];

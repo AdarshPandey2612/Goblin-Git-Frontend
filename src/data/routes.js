@@ -1,0 +1,32 @@
+export const routes = [
+  {
+    id: "ROUTE-A",
+    name: "Morning School Route",
+    bus: "BUS-05",
+    driver: "Rajesh Kumar",
+    start: "Sector 12",
+    destination: "School Campus",
+    stops: 5,
+    status: "Active",
+  },
+  {
+    id: "ROUTE-B",
+    name: "City Center Route",
+    bus: "BUS-08",
+    driver: "Amit Singh",
+    start: "City Center",
+    destination: "School Campus",
+    stops: 6,
+    status: "Active",
+  },
+  {
+    id: "ROUTE-C",
+    name: "Main Gate Route",
+    bus: "BUS-12",
+    driver: "Vikas Sharma",
+    start: "Main Gate",
+    destination: "School Campus",
+    stops: 4,
+    status: "Stopped",
+  },
+];

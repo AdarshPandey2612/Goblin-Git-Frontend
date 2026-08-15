@@ -1,15 +1,11 @@
-import Button from "./components/ui/Button";
+import AppRoutes from "./routes/AppRoutes";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <div>
-      <h1>Goblin Git</h1>
-      <p>School Transport Safety Console</p>
-
-      <Button onClick={() => alert("Goblin Git is working!")}>
-        Test Button
-      </Button>
-    </div>
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
   );
 }
 
