@@ -890,3 +890,135 @@ td {
     min-height: 280px;
   }
 }
+@media (max-width: 768px) {
+
+  /* Main Layout */
+
+  .dashboard {
+    margin-left: 0;
+    padding: 20px 16px;
+    width: 100%;
+  }
+
+  /* Sidebar */
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 16px;
+  }
+
+  .sidebar nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  .sidebar nav a {
+    white-space: nowrap;
+    padding: 10px 14px;
+  }
+
+  /* Page Header */
+
+  .page-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .page-heading h1 {
+    font-size: 26px;
+  }
+
+  .page-heading p {
+    font-size: 14px;
+  }
+
+  /* Statistics */
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 18px;
+  }
+
+  .stat-card h2 {
+    font-size: 24px;
+  }
+
+  /* Dashboard Grid */
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Tables */
+
+  .table-container,
+  .table-card {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 700px;
+  }
+
+  /* Search */
+
+  .bus-toolbar,
+  .search-box {
+    width: 100%;
+  }
+
+  .bus-toolbar input,
+  .search-box input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Buttons */
+
+  .primary-button,
+  .back-button,
+  .view-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+  }
+
+  /* Map */
+
+  .map-placeholder {
+    min-height: 280px;
+  }
+
+  /* Bus Cards */
+
+  .bus-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Login */
+
+  .login-page {
+    padding: 20px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+  }
+
+}
